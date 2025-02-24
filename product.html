@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="../css/nav.css"> 
+    <link rel="stylesheet" href="../css/hero.css"> 
+    <link rel="stylesheet" href="../css/hero-pdts.css">
+     <link rel="stylesheet" href="../css/product.css"> 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+   <style>
+    /* Color Buttons */
+.color-btn {
+    width: 40px;
+    height: 40px;
+border-radius: 50%;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: transparent;
+    margin: 3px;
+
+}
+
+.color-btn:hover,
+.color-btn.active {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333;
+}
+.color-selection p{
+top: 50px;
+}
+.color-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.color-options p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.color-options div {
+    display: flex;
+    gap: 8px;
+}
+.quantity-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.quantity-selection p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.quantity-selection div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #ddd;
+    transition: 0.3s ease-in-out;
+}
+
+.quantity-btn:hover {
+    background-color: #bbb;
+}
+
+#quantity {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+
+   </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="hamburger" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+    
+        <div class="logo">MyLogo</div>
+    
+        <ul class="nav-links">
+            <li><a href="../pages/index1.html">Home</a></li>
+            <li><a href="../pages/shop.html">Shop</a></li>
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="../pages/b.html">About Us</a>
+                    <a href="../pages/contact.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+    
+        <div class="icons">
+            <i class="fas fa-search" onclick="toggleSearchPopup()"></i>
+            <div class="cart-container" onclick="toggleCartSidebar()">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cartItemCount" class="cart-badge">0</span>
+            </div>
+            <div class="cart-container" >
+                <i class="fa fa-heart"></i>
+                <span id="cartItemCount" class="cart-badge">0</span>
+            </div>
+            <a href="signin.html" style="color: white; text-decoration: none;">
+                <i class="far fa-user"></i>
+              </a>
+              
+        </div>
+        <div class="sidebar">
+            <div class="logo-1">MyLogo</div>
+            <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
+            <a href="../pages/index1.html">Home</a>
+            <a href="../pages/shop.html">Shop</a>
+        
+            <!-- Pages Dropdown in Sidebar -->
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="../pages/b.html">About Us</a>
+                    <a href="../pages/contact.html">Contact Us</a>
+                </div>
+            </li>
+            <a href="../pages/contact.html">Contact</a>
+        </div>
+        
+      <!-- Search Popup -->
+      <div class="search-popup" id="searchPopup">
+        <input type="text" id="searchQuery" placeholder="Search...">
+        <button onclick="performSearch()">Search</button>
+        <i class="fas fa-times close-btn" onclick="toggleSearchPopup()"></i>
+    </div>    
+    </header>
+    
+    <div class="sidebar-cart" id="cartSidebar">
+        <p>Items on Cart</p>
+        <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i>
+        <div id="cartItemsContainer" class="cart-items"></div>
+        <div class="cart-total">
+            <p>Total: <span id="cartTotal">0</span></p>
+            <a href="../pages/checkout.html" style="background-color: #07090a; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">
+                Checkout
+              </a>
+              
+        </div>
+    </div>
+     
+               <div class="body">
+    <div class="product-image">
+        <img id="main-image" src="../images/phone-1.jfif" alt="KB Phone 15 Pro">
+        
+        <!-- Thumbnail Images directly below the main image -->
+        <div class="thumbnail-container">
+            <img class="thumbnail" src="../images/watch-1.jfif" alt="KB Phone 15 Pro 2">
+            <img class="thumbnail" src="../images/pc-2.jfif" alt="KB Phone 15 Pro 3">
+            <img class="thumbnail" src="../images/phone-1.jfif" alt="KB Phone 15 Pro 4">
+        </div>
+    </div>
+    
+        
+        
+        <!-- Scrollable Product Details -->
+        <div class="product-details1">
+            <h1>KB Phone 15 Pro</h1>
+            <p class="price">Tk 93,400.00 <span class="old-price">Tk 124,400.00</span> <span class="sale-badge">SALE</span> <span class="discount">-25%</span></p>
+            <div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734; <span>(2)</span></div>
+          
+            <div class="color-options">
+                <div><p>Select Size:</p></div>
+               <div> <button class="color-btn"> "5.5"</button>
+                <button class="color-btn" >"6.0"</button>
+                <button class="color-btn">6.5</button>
+            </div></div>
+                                <div class="color-options">
+                                    <div><p>Select Color:</p></div>
+                                   <div> <button class="color-btn"> Black</button>
+                                    <button class="color-btn" >Red</button>
+                                    <button class="color-btn">Blue</button>
+                                </div></div>
+                           <p></p>
+                           <div class="quantity-selection">
+                            <div><p>Quantity:</p></div>
+                            <div><button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
+                            <span id="quantity">1</span>
+                            <button class="quantity-btn"  onclick="increaseQuantity()">+</button></div>
+                         
+                        </div>
+
+            <div class="buttons">
+                <button class="add-to-cart1">Add To Cart</button>
+                <button class="Buy-Now1 ">Buy It Now</button>
+            </div>
+
+            <p class="safe-checkout">Guaranteed safe checkout</p>
+            <div class="payment-icons">
+                <img src="visa.png" alt="Visa">
+                <img src="mastercard.png" alt="Mastercard">
+                <img src="amex.png" alt="Amex">
+                <img src="paypal.png" alt="PayPal">
+                <img src="discover.png" alt="Discover">
+            </div>
+
+            <div class="container">
+              <div class="button-container">
+                  <button onclick="toggleContent('content1')" class="add-to-cart1">Description</button>
+                  <div id="content1" class="content">
+                      <p>This is the content for Button 1.</p>
+                  </div>
+              </div>
+      
+              <div class="button-container">
+                  <button onclick="toggleContent('content2')" class="Buy-Now1 ">Terms and Conditions</button>
+                  <div id="content2" class="content">
+                      <p>This is the content for Button 2.</p>
+                  </div>
+              </div>
+          </div>
+      
+        </div>
+    </div>
+</div>
+
+<div class="head-div"><h1 class="head-h1"><br>Similar Products</h1></div>
+<section class="recommended-products">
+
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Speaker</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+        
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>HeadPhones</h3>
+            <p>Tk 148,700.00</p>
+        
+        </div>
+    </div><div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Shirts</h3>
+            <p>Tk 148,700.00.</p>
+            
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/../images/phone-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Dress</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+    <div class="space"></div>
+</section>
+
+<!-- Product Details Popup -->
+<div id="productPopup" class="product-popup">
+    <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <div class="popup-details">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <img id="popupProductImage" src="" alt="Product Image">
+            <div class="popup-info">
+                <h2 id="popupProductTitle"></h2>
+                <p class="popup-price">Price:<span id="popupProductDescription"></span>  <span class="old-price">Tk 124,400.00</span> <span class="sale-badge">SALE</span>   <span class="discount">-25%</span></p>
+                
+            
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    
+                    <div class="color-options">
+                        <div><p>Select Color:</p></div>
+                       <div> <button class="color-btn"> Black</button>
+                        <button class="color-btn" >Red</button>
+                        <button class="color-btn">Blue</button>
+                    </div></div>
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <div><p>Quantity:</p></div>
+                    <div><button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button class="quantity-btn"  onclick="increaseQuantity()">+</button></div>
+                 
+                </div>
+             
+                <!-- Action Buttons -->
+                <div class="popup-buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buyNow">Buy It Now</button>
+                    <a href="" class="pop-link">View full details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-body">
+    <footer>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Single blog</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Information</h4>
+            <ul>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Payment</a></li>
+                <li><a href="#">Return Policy</a></li>
+                <li><a href="#">Promotions</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">My Cart</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Product Compare</a></li>
+            </ul>
+        </div>
+        <div class="footer-column contact-info">
+            <h4>Contact Info</h4>
+            <p>70 Washington Square<br>
+               South, New York, NY<br>
+               10012, United States</p>
+            <p>+12345 678 910<br>
+               +12345 678 109</p>
+        </div>
+    </footer></div>
+<script>
+  function toggleContent(id) {
+      let content = document.getElementById(id);
+      content.style.display = content.style.display === "block" ? "none" : "block";
+  }
+</script>
+    <script src="../js/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>

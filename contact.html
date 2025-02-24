@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css"> 
+    <style>
+        /* Basic styles */
+        .contact-body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            max-width: 900px;
+            width: 95%; /* Occupy most of the screen width */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .organization-info,
+        .contact-form {
+            flex: 1 1 300px; /* Each section takes at least 300px, can grow */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .organization-info h2,
+        .contact-form h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .organization-info p {
+            margin-bottom: 10px;
+        }
+
+        .organization-info ul {
+            padding-left: 20px;
+        }
+
+        .contact-form label,
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background-color: #080807;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .contact-form button:hover {
+            background-color: #2b2823;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column; /* Stack sections vertically */
+            }
+
+            .organization-info,
+            .contact-form {
+                flex: 1 1 100%; /* Each section takes full width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="hamburger" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+    
+        <div class="logo">MyLogo</div>
+    
+        <ul class="nav-links">
+            <li><a href="../pages/index1.html">Home</a></li>
+            <li><a href="../pages/shop.html">Shop</a></li>
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="../pages/b.html">About Us</a>
+                    <a href="../pages/contact.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+    
+        <div class="icons">
+            <i class="fas fa-search" onclick="toggleSearchPopup()"></i>
+            <div class="cart-container" onclick="toggleCartSidebar()">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cartItemCount" class="cart-badge">0</span>
+            </div>
+            <div class="cart-container" >
+                <i class="fa fa-heart"></i>
+                <span id="cartItemCount" class="cart-badge">0</span>
+            </div>
+            <a href="signin.html" style="color: white; text-decoration: none;">
+                <i class="far fa-user"></i>
+              </a>              
+        </div>
+        <div class="sidebar">
+            <div class="logo-1">MyLogo</div>
+            <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
+            <a href="../pages/index1.html">Home</a>
+            <a href="../pages/shop.html">Shop</a>
+         
+            <!-- Pages Dropdown in Sidebar -->
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="../pages/b.html">About Us</a>
+                    <a href="../pages/contact.html">Contact Us</a>
+                </div>
+            </li>
+            <a href="../pages/contact.html">Contact</a>
+        </div>
+        
+      <!-- Search Popup -->
+      <div class="search-popup" id="searchPopup">
+        <input type="text" id="searchQuery" placeholder="Search...">
+        <button onclick="performSearch()">Search</button>
+        <i class="fas fa-times close-btn" onclick="toggleSearchPopup()"></i>
+    </div>    
+    </header>
+    
+    <div class="sidebar-cart" id="cartSidebar">
+        <p>Items on Cart</p>
+        <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i>
+        <div id="cartItemsContainer" class="cart-items"></div>
+        <div class="cart-total">
+            <p>Total: <span id="cartTotal">0</span></p>
+            <a href="../pages/checkout.html" style="background-color: #050708; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">
+                Checkout
+              </a>
+              
+        </div>
+    </div>
+    <section class="contact-body">
+    <div class="contact-container">
+        <div class="organization-info">
+            <h2>Our Organization</h2>
+            <p>Insert your organization's description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Contact us for more information:</p>
+            <ul>
+                <li>Email: info@example.com</li>
+                <li>Phone: +1234567890</li>
+                <li>Address: 123 Organization St, City, Country</li>
+            </ul>
+        </div>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div></section>
+    <div class="footer-body">
+        <footer>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Single blog</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Promotions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">My account</a></li>
+                    <li><a href="#">My Cart</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Product Compare</a></li>
+                </ul>
+            </div>
+            <div class="footer-column contact-info">
+                <h4>Contact Info</h4>
+                <p>70 Washington Square<br>
+                   South, New York, NY<br>
+                   10012, United States</p>
+                <p>+12345 678 910<br>
+                   +12345 678 109</p>
+            </div>
+        </footer>
+    <script src="../js/nav.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let message = document.getElementById('message').value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            alert("Message sent successfully!");
+            this.reset();
+        });
+    </script>
+</body>
+</html>

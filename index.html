@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header with Hero Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/nav.css"> 
+    <link rel="stylesheet" href="../css/cart.css"> 
+    <link rel="stylesheet" href="../css/hero.css"> 
+    <link rel="stylesheet" href="../css/hero-pdts.css">
+
+    <link rel="stylesheet" href="../css/product.css"> 
+
+  
+</head>
+<body>
+
+    <header class="header">
+        <div class="hamburger" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+    
+        <div class="logo">MyLogo</div>
+    
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="../pages/shop.html">Shop</a></li>
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="../pages/b.html">About Us</a>
+                    <a href="../pages/contact.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+    
+        <div class="icons">
+            <i class="fas fa-search" onclick="toggleSearchPopup()"></i>
+            <div class="cart-container" onclick="toggleCartSidebar()">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cartItemCount" class="cart-badge">0</span>
+            </div>
+            <div class="cart-container" >
+                <i class="fa fa-heart"></i>
+                <span id="cartItemCount" class="cart-badge">0</span>
+            </div>
+            <a href="signin.html" style="color: white; text-decoration: none;">
+                <i class="far fa-user"></i>
+              </a>
+              
+        </div>
+        <div class="sidebar">
+            <div class="logo-1">MyLogo</div>
+            <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
+            <a href="#">Home</a>
+            <a href="../pages/shop.html">Shop</a>
+        
+            <!-- Pages Dropdown in Sidebar -->
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <div class="dropdown-content">
+                    <a href="../pages/b.html">About Us</a>
+                    <a href="../pages/contact.html">Contact Us</a>
+                </div>
+            </li>
+            <a href="../pages/contact.html">Contact</a>
+        </div>
+        
+      <!-- Search Popup -->
+      <div class="search-popup" id="searchPopup">
+        <input type="text" id="searchQuery" placeholder="Search...">
+        <button onclick="performSearch()">Search</button>
+        <i class="fas fa-times close-btn" onclick="toggleSearchPopup()"></i>
+    </div>    
+    </header>
+    
+    <div class="sidebar-cart" id="cartSidebar">
+        <p>Items on Cart</p>
+        <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i>
+        <div id="cartItemsContainer" class="cart-items"></div>
+        <div class="cart-total">
+            <p>Total: <span id="cartTotal">0</span></p>
+            <a href="../pages/checkout.html" style="background-color: #07090a; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">
+                Checkout
+              </a>
+              
+        </div>
+    </div>
+<section class="hero">
+    <div class="hero-slider" id="heroSlider">
+        <div class="hero-slide">
+            <img src="../images/banner2.jpg" alt="Hero Image 1">
+            <div class="hero-content">
+                <h1>Exclusive Deals on Fashion</h1>
+                <p>Discover the latest trends at the best prices.</p>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <img src="../images/banner3.jpg" alt="Hero Image 2">
+            <div class="hero-content">
+                <h1>Quality Products You Can Trust</h1>
+                <p>Only the best materials for our valued customers.</p>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <img src="../images/banner4.jpg" alt="Hero Image 3">
+            <div class="hero-content">
+                <h1>Unbeatable Discounts</h1>
+                <p>Get the best deals before they’re gone!</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="hero-nav hero-nav-left" onclick="prevSlide()">&#10094;</button>
+    <button class="hero-nav hero-nav-right" onclick="nextSlide()">&#10095;</button>
+</section>
+
+<section class="product-layout">
+    <div class="product-card">
+        <img src="../images/banner4.jpg" alt="Latest Qpad with Keyboard">
+        <div class="product-info">
+            <span class="tag">NEW ARRIVAL</span>
+            <h2>Latest Qpad with keyboard</h2>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="../images/banner2.jpg" alt="Pro Versions">
+        <div class="product-info">
+            <span class="tag">GET UP TO 35% OFF</span>
+            <h2>And then there was pro versions</h2>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="../images/banner3.jpg" alt="Modern Headphones">
+        <div class="product-info">
+            <span class="tag">HURRY UP!</span>
+            <h2>Modern & Stylish Headphones</h2>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+</section>
+<div class="cats"><h2 class="categories-h2">Our Product Categories</h2>
+    <p class="categories-p">Explore our wide range of products across various categories.</p>
+</div>
+    <section class="categories">
+    <div class="category">
+        <img src="../images/banner2.jpg" alt="Home Appliances">
+        <h3>Home Appliances</h3>
+        <p>1 Items</p>
+    </div>
+    <div class="category">
+        <img src="../images/banner3.jpg" alt="PC & Laptop">
+        <h3>PC & Laptop</h3>
+        <p>6 Items</p>
+    </div>
+    <div class="category">
+        <img src="../images/banner4.jpg" alt="Kitchen Appliances">
+        <h3>Kitchen Appliances</h3>
+        <p>10 Items</p>
+    </div>
+    <div class="category">
+        <img src="../images/blog5.jpg" alt="Activa Phone & Table">
+        <h3>Activa Phone & Table</h3>
+        <p>11 Items</p>
+    </div>
+  
+</section>
+<div class="head-divs"><h1 class="head-h1">Highly Recommended</h1></div>
+<div class="head-body">
+    <div class="head-container">
+        <p class="text">Get the latest deals and updates!</p>
+        <button class="btn" >View All</button>
+    </div></div>
+<section class="recommended-products">
+   
+    <div class="recommended-product-card">
+        <img src="../images/watch-1.jfif" alt="Product 1">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Ornex Blender</h3>
+                <p >Shs 148,700</p>
+        </div>
+    </div>
+    
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Watch</h3>
+            <p>Tk 148,700.00</p>
+          
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/phone-1.jfif" alt="Product 3">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Phone</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+        
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>watch</h3>
+            <p>Tk 148,700.00</p>
+       
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Speaker</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+        
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>HeadPhones</h3>
+            <p>Tk 148,700.00</p>
+        
+        </div>
+    </div><div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Shirts</h3>
+            <p>Tk 148,700.00.</p>
+            
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/../images/phone-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Dress</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+    <div class="space"></div>
+</section>
+
+<!-- Product Details Popup -->
+<div id="productPopup" class="product-popup">
+    <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <div class="popup-details">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <img id="popupProductImage" src="" alt="Product Image">
+            <div class="popup-info">
+                <h2 id="popupProductTitle"></h2>
+                <p class="popup-price">Price:<span id="popupProductDescription"></span>  <span class="old-price">Tk 124,400.00</span> <span class="sale-badge">SALE</span>   <span class="discount">-25%</span></p>
+                
+            
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    
+                    <div class="color-options">
+                        <div><p>Select Color:</p></div>
+                       <div> <button class="color-btn"> Black</button>
+                        <button class="color-btn" >Red</button>
+                        <button class="color-btn">Blue</button>
+                    </div></div>
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <div><p>Quantity:</p></div>
+                    <div><button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button class="quantity-btn"  onclick="increaseQuantity()">+</button></div>
+                 
+                </div>
+             
+                <!-- Action Buttons -->
+                <div class="popup-buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buyNow">Buy It Now</button>
+                    <a href="../pages/product.html" class="pop-link">View full details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="product-layout">
+    <div class="product-card">
+        <img src="../images/banner4.jpg" alt="Latest Qpad with Keyboard">
+        <div class="product-info">
+            <span class="tag">NEW ARRIVAL</span>
+            <h2>Latest Qpad with keyboard</h2>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="../images/banner2.jpg" alt="Pro Versions">
+        <div class="product-info">
+            <span class="tag">GET UP TO 35% OFF</span>
+            <h2>And then there was pro versions</h2>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="../images/banner3.jpg" alt="Modern Headphones">
+        <div class="product-info">
+            <span class="tag">HURRY UP!</span>
+            <h2>Modern & Stylish Headphones</h2>
+            <a href="#" class="buy-now">Buy Now</a>
+        </div>
+    </div>
+</section>
+<div class="head-div"><h1 class="head-h1"><br>Best Selling Products</h1></div>
+<div class="head-body">
+    <div class="head-container">
+        <p class="text">Get the latest deals and updates!</p>
+        <button class="btn" >View All</button>
+    </div></div>
+<section class="recommended-products">
+   
+    <div class="recommended-product-card">
+        <img src="../images/watch-1.jfif" alt="Product 1">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Ornex Blender</h3>
+ 
+                <p>Tk 148,700.00</p>
+        </div>
+    </div>
+    
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Watch</h3>
+            <p>Tk 148,700.00</p>
+          
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/phone-1.jfif" alt="Product 3">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Phone</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+        
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>watch</h3>
+            <p>Tk 148,700.00</p>
+       
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Speaker</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+        
+    <div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>HeadPhones</h3>
+            <p>Tk 148,700.00</p>
+        
+        </div>
+    </div><div class="recommended-product-card">
+        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Shirts</h3>
+            <p>Tk 148,700.00.</p>
+            
+        </div>
+    </div>
+    <div class="recommended-product-card">
+        <img src="../images/../images/phone-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Dress</h3>
+            <p>Tk 148,700.00</p>
+           
+        </div>
+    </div>
+     <div class="space"></div>
+</section>
+
+<!-- Product Details Popup -->
+<div id="productPopup" class="product-popup">
+    <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <div class="popup-details">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <img id="popupProductImage" src="" alt="Product Image">
+            <div class="popup-info">
+                <h2 id="popupProductTitle"></h2>
+                <p class="popup-price">Price:<span id="popupProductDescription"></span></p>
+                
+
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    
+                    <div class="color-options">
+                        <p>Select Color:</p>
+                        <button class="color-btn"> Black</button>
+                        <button class="color-btn" >Red</button>
+                        <button class="color-btn">Blue</button>
+                    </div>
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <p>Quantity:</p>
+                    <button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="popup-buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buyNow">Buy It Now</button>
+                    <a href="" class="pop-link">View full details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=".arrow-body ">
+    <div class="head-arrow">
+    <h1>What Our Clients Say</h1>
+    <p>The Best electronics products continue to drive innovation and shape
+        the way we live, work, and interact with our environment.</p>
+   </div>
+    <div class="reviews-container">
+        
+        <div class="arrows-container">
+            
+            <button class="arrow" onclick="scrollReviews(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="arrow" onclick="scrollReviews(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="reviews-wrapper" id="reviewsWrapper">
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                <h3>Best quality product</h3>
+                <p>"This smart home assistant has become an essential part of my daily routine."</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h3>Amazing build quality</h3>
+                <p>"The product is well-built, feels premium, and works flawlessly."</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h3>Smart Home Assistant</h3>
+                <p>"I love how this assistant helps me stay on top of my schedule."</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                <h3>Very Useful</h3>
+                <p>"It’s a useful addition to my home, but I wish it had more features."</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h3>Highly Recommend</h3>
+                <p>"This is hands down the best smart device I have ever owned!"</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                <h3>Good Value for Money</h3>
+                <p>"The price is fair for the features it offers. Very satisfied!"</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                <h3>Could Be Better</h3>
+                <p>"It works well, but I had some issues setting it up at first."</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <h3>Fantastic Product</h3>
+                <p>"I can’t imagine my home without it now. A must-buy!"</p>
+            </div>
+            <div class="review">
+                <div class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                <h3>Decent Performance</h3>
+                <p>"It performs decently but could use some improvements."</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-body">
+    <footer>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Single blog</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Information</h4>
+            <ul>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Payment</a></li>
+                <li><a href="#">Return Policy</a></li>
+                <li><a href="#">Promotions</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">My Cart</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Product Compare</a></li>
+            </ul>
+        </div>
+        <div class="footer-column contact-info">
+            <h4>Contact Info</h4>
+            <p>70 Washington Square<br>
+               South, New York, NY<br>
+               10012, United States</p>
+            <p>+12345 678 910<br>
+               +12345 678 109</p>
+        </div>
+    </footer></div>
+<script src="../js/nav.js"></script>
+<script src="../js/hero.js"></script>
+<script src="../js/product.js"></script>
+<script src="../js/sh.js"></script>
+
+</body>
+</html>
