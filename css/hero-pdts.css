@@ -1,0 +1,428 @@
+.space{
+    margin-bottom:30px;
+}
+    .recommended-products {
+        text-align: center;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates flexible columns */
+        gap: 10px; /* Adds spacing between products */
+        justify-content: center; /* Centers items */
+        flex:1;
+    }
+    
+    .recommended-product-card {
+        background-color: #f4f2f2;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .recommended-product-card:hover {
+        transform: scale(1.05);
+    }
+    .recommended-product-card img {
+        width: 100%;
+        height:auto;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+   
+  
+    
+    .recommended-product-info h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    
+    .recommended-product-info p {
+        font-size: 15px;
+        font-weight: bold;
+        color: black; /* Light gray price */
+        margin: 10px;
+    }
+    
+    .icon-overlay {
+        position: absolute;
+        top: 10%;
+        right: 10px;
+        transform: translateY(0);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        gap: 5px;
+        transition: opacity 0.3s ease;
+    }
+  
+    .icon-overlay i {
+        margin: 10px 0;
+        font-size: 0.8rem;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 758px) {
+        .icon-overlay {
+            opacity: 1;
+            gap: 2px; /* Reduce the gap between icons */
+        }
+    
+        .icon-overlay i {
+            margin: 5px 0; /* Reduce the margin between icons */
+        }
+    }
+    @media (max-width: 468px) {
+        .icon-overlay {
+            opacity: 1;
+            gap: 1px; /* Even smaller gap for very small screens */
+        }
+    
+        .icon-overlay i {
+            margin: 3px 0; /* Even smaller margin for very small screens */
+            font-size: 0.9rem; /* Adjust icon size for very small screens */
+        }
+    }
+   
+    .recommended-product-card:hover .icon-overlay {
+        opacity: 1;
+    }
+    
+    .recommended-product-card:hover .icon-overlay i {
+        transform: scale(1.2);
+    }
+  
+
+    
+    
+    /* Product Details Popup */
+    /* General Popup Styles */
+.product-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Content Box */
+.popup-content {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    max-width: 850px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Popup Details */
+.popup-details {
+    display: flex;
+    gap: 25px;
+    flex: 1;
+    margin-top: 20px;
+}
+
+/* Product Image */
+#popupProductImage {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    object-fit: contain;
+}
+
+/* Popup Information */
+.popup-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup-info h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.popup-info p {
+    font-size: 1rem;
+    color: #0f0c0c;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Close Button */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.close-popup:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Price Styling */
+.popup-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #090808;
+    margin: 15px 0;
+}
+
+/* Color Selection */
+.color-selection,
+.quantity-selection {
+    margin-bottom: 15px;
+}
+
+.color-selection p,
+.quantity-selection p {
+    font-weight: 500;
+    color: #0a0a0a;
+    margin-bottom: 5px;
+}
+
+.color-options {
+    display:inline-flex;
+    gap: 5px;
+    
+}
+
+/* Color Buttons */
+.color-btn {
+    width: 45px;
+    height: 45px;
+border-radius: 50%;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: transparent;
+
+}
+
+.color-btn:hover,
+.color-btn.active {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333;
+}
+.color-selection p{
+top: 50px;
+}
+.color-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.color-options p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.color-options div {
+    display: flex;
+    gap: 8px;
+}
+
+.quantity-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.quantity-selection p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.quantity-selection div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #ddd;
+    transition: 0.3s ease-in-out;
+}
+
+.quantity-btn:hover {
+    background-color: #bbb;
+}
+
+#quantity {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+
+.pop-link{
+  text-align: left;
+}
+
+#quantity {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50px;
+    text-align: center;
+}
+
+/* Action Buttons */
+.popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup-buttons button {
+    padding: 12px 18px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.add-to-cart {
+    background: #34373a;
+    color: white;
+}
+
+.add-to-cart:hover {
+    background: #0c0d0e;
+}
+
+.buyNow {
+    background: #34373a;
+    color: white;
+}
+
+.buyNow:hover {
+    background: #0c0d0e;
+}
+
+/* Responsive Adjustments */
+
+     /* Responsive Design */
+     @media (max-width: 1024px) {
+        .recommended-products {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for medium screens */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .recommended-products {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for small screens */
+        }
+    }
+    @media (max-width: 800px) {
+        .popup-content {
+            flex-direction: column;
+            align-items: center;
+            
+            overflow-y: auto;
+        }
+    
+        .popup-details {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    
+        .popup-info {
+            text-align: center;
+            width: 100%;
+        }
+    
+        .color-options {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .popup-content {
+            padding: 15px;
+            overflow-y: auto; /* Enable scrolling */
+        }
+    
+        .popup-info h2 {
+            font-size: 1.5rem;
+        }
+    
+        .popup-info p {
+            font-size: 0.95rem;
+        }
+    
+        .popup-buttons button {
+            padding: 10px 15px;
+            font-size: 1rem;
+        }
+    
+        .close-popup {
+            font-size: 1.5rem;
+            top: 8px;
+            right: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .color-btn {
+            width: 30px;
+            height: 2px;
+        }
+    .popup-content{
+        height: 650px;
+    }
+        .popup-info h2 {
+            font-size: 1.3rem;
+        }
+    }
+    
+
+   
