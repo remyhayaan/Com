@@ -695,11 +695,13 @@ footer {
     }
 
     .review h3 {
-        font-size: 15px;
+        font-size: 12px;
+        margin-left:10px;
     }
 
     .review p {
-        font-size: 12px;
+        font-size: 10px;
+        margin-left:10px;
     }
 
     .stars {
@@ -707,6 +709,9 @@ footer {
     }
     .arrows-container {
         top: -5px; /* Moves arrows even higher */
+    }
+    .head-arrow p{
+        margin-left: 22px;
     }
 }
 
