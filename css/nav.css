@@ -14,29 +14,60 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Hide off-screen initially */
-    width: 250px;
+    left: -280px; /* Initially hidden */
+    width: 280px;
     height: 100%;
-    background-color: #333;
+    background: #111; /* Deep black background */
     color: white;
-    transition: 0.3s;
+    transition: all 0.4s ease-in-out;
     padding-top: 60px;
-    padding-left: 20px;
     z-index: 1000;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar a {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    padding: 8px 16px;
+    padding: 12px 20px;
     display: block;
-    transition: 0.3s;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease-in-out;
 }
 
 .sidebar a:hover {
-    color: #cece8f;
+    color: #f1c40f; /* Gold hover effect */
+    border-left: 3px solid #f1c40f;
+    background: rgba(255, 255, 255, 0.1);
 }
+
+.sidebar .logo-1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.sidebar .close-btn:hover {
+    color: #f1c40f;
+}
+
+/* Active Sidebar */
+.sidebar.active {
+    left: 0;
+}
+
 
 /* Dropdown Styling for Sidebar */
 .sidebar .dropdown {
