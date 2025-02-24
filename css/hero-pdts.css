@@ -382,7 +382,24 @@ top: 50px;
         .color-options {
             flex-wrap: wrap;
             justify-content: center;
+            gap: 3px;
         }
+        
+.color-options {
+    display:inline-flex;
+    gap: 5px;
+    
+}
+
+/* Color Buttons */
+.color-btn {
+    width: 35px;
+    height: 35px;
+
+}
+
+
+
     }
     
     @media (max-width: 768px) {
