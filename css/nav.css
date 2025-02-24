@@ -36,7 +36,6 @@ body {
 }
 
 .sidebar a:hover {
-    color: #f1c40f; /* Gold hover effect */
     border-left: 3px solid #f1c40f;
     background: rgba(255, 255, 255, 0.1);
 }
