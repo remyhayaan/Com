@@ -6,6 +6,7 @@
     <title>Responsive Header with Hero Slider</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/nav.css"> 
+    <link rel="stylesheet" href="./css/cart.css"> 
     <link rel="stylesheet" href="./css/hero.css"> 
     <link rel="stylesheet" href="./css/product.css"> 
     <link rel="stylesheet" href="./css/hero-pdts.css">
@@ -44,7 +45,6 @@
         width: 250px;
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Soft white shadow */
         position: fixed;
         top: 0;
         right: -250px; /* Off-screen initially */
@@ -54,11 +54,12 @@
         color:black;  /* White text */
         text-align: center;
     }
-    
     .filter-sidebar h3 {
+        color: rgb(187, 149, 88);
+        font-size: 1.3rem;
+        font-weight: 600;
         margin-bottom: 15px;
-        font-size: 1.2rem;
-        color:rgb(187, 149, 88);
+        padding-bottom: 5px;
     }
     
     .filter-sidebar label {
@@ -80,8 +81,8 @@
         width: 100%;
         padding: 10px;
         margin: 10px 0;
-        background: #fff; /* White button */
-        color: #000;     /* Black text */
+        background: #0a0909; /* White button */
+        color: #f6f4f4;     /* Black text */
         border: none;
         cursor: pointer;
         border-radius: 5px;
@@ -93,14 +94,33 @@
     }
     
     /* Close button (X) for sidebar */
-    .filter-sidebar .close-btn {
-        position: absolute;
-        top: 20px;
-        left: 10px;
-        font-size: 1.5rem;
-        color: black;
-        cursor: pointer;
-    }
+   .filter-sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 3px;
+    font-size: 30px;
+    color: rgb(250, 246, 246);
+    cursor: pointer;
+    background-color: rgb(187, 149, 88); /* Light gray background */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+
+}
+
+.filter-sidebar .close-btn:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+    transform: scale(1.1) translateY(-2px);
+}
+
+.filter-sidebar .close-btn:active {
+    transform: scale(0.9); /* Shrinks slightly when clicked */
+}
+
     
     /* 📱 Responsive Design for larger screens */
     @media (min-width: 468px) {
@@ -138,7 +158,7 @@
 
         .filter-button {
             display: block;
-            width: 80%;
+            width: 30%;
             background-color: #111111;
             color: white;
             padding: 10px;
@@ -147,33 +167,25 @@
             cursor: pointer;
             margin-bottom: 10px;
             font-size: 1rem;
+            margin-left: 10px;
+            align-self: flex-start;
         }
     .filter-sidebar h3 {
-
         color:rgb(187, 149, 88);
+        margin-bottom: 15px;
+        border-bottom: 2px solid rgb(187, 149, 88);
+        padding-bottom: 5px;
     }
     .filter-sidebar label {
         color: rgb(187, 149, 88);
     }
+    .filter-button i {
+        margin-left: 5px; /* Adds space between icon and text */
+    }
+    
         }
     
-    .cart-badge {
-        position: absolute;
-        top: -5px;
-        right: -10px;
-        background-color: red;
-        color: white;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 3px 7px;
-        border-radius: 50%;
-        min-width: 18px;
-        text-align: center;
-    }
-    .cart-container {
-        position: relative;
-        display: inline-block;
-    }
+   
  
 </style>
 </head><body>
@@ -181,9 +193,7 @@
         <div class="hamburger" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </div>
-    
         <div class="logo">MyLogo</div>
-    
         <ul class="nav-links">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./shop.html">Shop</a></li>
@@ -196,61 +206,59 @@
             </li>
             <li><a href="./contact.html">Contact</a></li>
         </ul>
-    
         <div class="icons">
             <i class="fas fa-search" onclick="toggleSearchPopup()"></i>
             <div class="cart-container" onclick="toggleCartSidebar()">
                 <i class="fa fa-shopping-cart"></i>
-                <span id="cartItemCount" class="cart-badge">0</span>
+                <span class="cart-badge">0</span>
             </div>
-            <div class="cart-container" >
+            <div class="cart-container">
                 <i class="fa fa-heart"></i>
-                <span id="cartItemCount" class="cart-badge">0</span>
+                <span class="cart-badge">0</span>
             </div>
-            <a href="signin.html" style="color: white; text-decoration: none;">
-                <i class="far fa-user"></i>
-              </a>
-              
+            <a href="signin.html" class="user-icon">
+                <i class="far fa-user" style="color: white;"></i>
+            </a>
+            
         </div>
-        <div class="sidebar">
-            <div class="logo-1">MyLogo</div>
+    </header>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">MyLogo</div>
             <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
-            <a href="./index.html">Home</a>
-            <a href="./shop.html">Shop</a>
-        
-            <!-- Pages Dropdown in Sidebar -->
-            <li class="dropdown">
-                <a href="#">Pages</a>
-                <div class="dropdown-content">
-                    <a href="./b.html">About Us</a>
-                    <a href="./contact.html">Contact Us</a>
-                </div>
-            </li>
-            <a href="./contact.html">Contact</a>
         </div>
-        
-      <!-- Search Popup -->
-      <div class="search-popup" id="searchPopup">
+        <a href="./index.html">Home</a>
+        <a href="./shop.html">Shop</a>
+        <div class="dropdown">
+            <a href="#">Pages</a>
+            <div class="dropdown-content">
+                <a href="./b.html">About Us</a>
+                <a href="./contact.html">Contact Us</a>
+            </div>
+        </div>
+        <a href="./contact.html">Contact</a>
+    </div>
+    
+    <div class="search-popup" id="searchPopup">
         <input type="text" id="searchQuery" placeholder="Search...">
         <button onclick="performSearch()">Search</button>
         <i class="fas fa-times close-btn" onclick="toggleSearchPopup()"></i>
-    </div>    
-    </header>
-    
+    </div>
     <div class="sidebar-cart" id="cartSidebar">
-        <p>Items on Cart</p>
-        <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i>
+        <p>Items on Cart <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i></p>
         <div id="cartItemsContainer" class="cart-items"></div>
         <div class="cart-total">
-            <p>Total: <span id="cartTotal">0</span></p>
-            <a href="./checkout.html" style="background-color: #07090a; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">
-                Checkout
-              </a>
-              
+            <p>Total: <span id="cartTotal">Tk 0.00</span></p>
+            <a href="./checkout.html" class="checkout-btn">Checkout</a>
         </div>
     </div>
     <section class="recommended-products-container" >
-        <button class="filter-button" onclick="toggleFilter()">Filter</button>
+      <button class="filter-button" onclick="toggleFilter()">
+ Filter    <i class="fas fa-sliders-h"></i> 
+</button>
+
+        
        
         <div class="content-wrapper">
             <div class="filter-sidebar" id="filterSidebar">
@@ -278,10 +286,10 @@
                 <label><input type="radio" name="sortPrice" value="priceLowHigh" onchange="applySort()"> Low to High</label><br>
                 <label><input type="radio" name="sortPrice" value="priceHighLow" onchange="applySort()"> High to Low</label><br>
             </div>
-            
             <section class="recommended-products"  id="productContainer">
-                <div class="recommended-product-card" data-name="Ornex Blender" data-price="148700" data-category="watch">
-                    <img src="../images/watch-1.jfif" alt="Product 1">
+                <div class="recommended-product-card"  data-name="Ornex Blender" data-price="148700" data-category="watch">
+                    <img src="./images/watch-1.jfif" alt="Product 1">
+                    <span class="discount-badge">SALE</span>
                     <div class="icon-overlay">
                         <i class="fas fa-plus"></i>
                         <i class="fas fa-eye"></i>
@@ -289,25 +297,13 @@
                     </div>
                     <div class="recommended-product-info">
                         <h3>Ornex Blender</h3>
-                        <p>Shs 148,700</p>
+                        <p><span class="old-price">Shs 185,000</span> <span class="new-price">Shs 148,700</span></p>
                     </div>
                 </div>
                 
                 <div class="recommended-product-card" data-name="Smartphone Pro" data-price="500" data-category="phone">
-                    <img src="../images/../images/watch-1.jfif" alt="Product 2">
-                    <div class="icon-overlay">
-                        <i class="fas fa-plus"></i>
-                        <i class="fas fa-eye"></i>
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="recommended-product-info">
-                        <h3>Watch</h3>
-                        <p>Tk 148,700.00</p>
-                    </div>
-                </div>
-                
-                <div class="recommended-product-card" data-name="Smartphone" data-price="148700" data-category="phone">
-                    <img src="../images/phone-1.jfif" alt="Product 3">
+                    <img src="./images/phone-1.jfif" alt="Product 3">
+                    <span class="discount-badge">SALE</span>
                     <div class="icon-overlay">
                         <i class="fas fa-plus"></i>
                         <i class="fas fa-eye"></i>
@@ -315,25 +311,28 @@
                     </div>
                     <div class="recommended-product-info">
                         <h3>Phone</h3>
-                        <p>Tk 148,700.00</p>
+                        <p><span class="old-price">Shs 175,000</span> <span class="new-price">Shs 148,700</span></p>
                     </div>
                 </div>
+               
                 
-                <div class="recommended-product-card" data-name="Luxury Watch" data-price="148700" data-category="watch">
-                    <img src="../images/../images/watch-1.jfif" alt="Product 2">
-                    <div class="icon-overlay">
-                        <i class="fas fa-plus"></i>
-                        <i class="fas fa-eye"></i>
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="recommended-product-info">
-                        <h3>Watch</h3>
-                        <p>Tk 148,700.00</p>
-                    </div>
-                </div>
+                
+        <div class="recommended-product-card"  data-name="Smartphone" data-price="148700" data-category="phone">
+            <img src="./images/watch-1.jfif" alt="Product 2">
+            <div class="icon-overlay">
+                <i class="fas fa-plus"></i>
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="recommended-product-info">
+                <h3>Watch</h3>
+                <p>Shs 148,700.00</p>
+            </div>
+        </div>
+       
                 
                 <div class="recommended-product-card" data-name="Speaker Pro" data-price="148700" data-category="speaker">
-                    <img src="../images/../images/watch-1.jfif" alt="Product 2">
+                    <img src="./images/watch-1.jfif" alt="Product 2">
                     <div class="icon-overlay">
                         <i class="fas fa-plus"></i>
                         <i class="fas fa-eye"></i>
@@ -346,40 +345,40 @@
                 </div>
                 
                 <div class="recommended-product-card" data-name="Headphones" data-price="148700" data-category="headphones">
-                    <img src="../images/../images/watch-1.jfif" alt="Product 2">
+                    <img src="./images/watch-1.jfif" alt="Product 2">
                     <div class="icon-overlay">
                         <i class="fas fa-plus"></i>
                         <i class="fas fa-eye"></i>
                         <i class="fas fa-heart"></i>
                     </div>
                     <div class="recommended-product-info">
-                        <h3>HeadPhones</h3>
+                        <h3>Phone</h3>
                         <p>Tk 148,700.00</p>
                     </div>
                 </div>
                 
                 <div class="recommended-product-card" data-name="Shirt" data-price="148700" data-category="clothing">
-                    <img src="../images/../images/watch-1.jfif" alt="Product 2">
+                    <img src="./images/watch-1.jfif" alt="Product 2">
                     <div class="icon-overlay">
                         <i class="fas fa-plus"></i>
                         <i class="fas fa-eye"></i>
                         <i class="fas fa-heart"></i>
                     </div>
                     <div class="recommended-product-info">
-                        <h3>Shirts</h3>
-                        <p>Tk 148,700.00.</p>
+                        <h3>Speaker</h3>
+                        <p>Tk 148,700.00</p>
                     </div>
                 </div>
                 
                 <div class="recommended-product-card" data-name="Dress" data-price="148700" data-category="clothing">
-                    <img src="../images/../images/phone-1.jfif" alt="Product 2">
+                    <img src="./images/phone-1.jfif" alt="Product 2">
                     <div class="icon-overlay">
                         <i class="fas fa-plus"></i>
                         <i class="fas fa-eye"></i>
                         <i class="fas fa-heart"></i>
                     </div>
                     <div class="recommended-product-info">
-                        <h3>Dress</h3>
+                        <h3>Speaker</h3>
                         <p>Tk 148,700.00</p>
                     </div>
                 </div>
@@ -396,9 +395,15 @@
                         <img id="popupProductImage" src="" alt="Product Image">
                         <div class="popup-info">
                             <h2 id="popupProductTitle"></h2>
-                            <p class="popup-price">Price:<span id="popupProductDescription"></span>  <span class="old-price">Tk 124,400.00</span> <span class="sale-badge">SALE</span>   <span class="discount">-25%</span></p>
+                            <p class="popup-price">
+                                <span id="popupOldPrice"></span> 
+                                <span id="popupNewPrice"></span>
+                                <span id="popupSaleBadge" class="sale-badge" style="display: none;">SALE</span>
+                                <span id="popupDiscount" class="discount"></span>
+                              
+                            </p>
                             
-                        
+                            
                             <!-- Color Selection -->
                             <div class="color-selection">
                                 
@@ -411,19 +416,20 @@
                             </div>
             
                             <!-- Quantity Selection -->
-                            <div class="quantity-selection">
-                                <div><p>Quantity:</p></div>
-                                <div><button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
-                                <span id="quantity">1</span>
-                                <button class="quantity-btn"  onclick="increaseQuantity()">+</button></div>
-                             
+                            <div class="qty-wrapper">
+                                <p class="qty-label">Quantity:</p>
+                                <div class="qty-container">
+                                    <button class="qty-btn minus" onclick="decreaseQuantity()">-</button>
+                                    <span id="qty-value">1</span>
+                                    <button class="qty-btn plus" onclick="increaseQuantity()">+</button>
+                                </div>
                             </div>
-                         
+            
                             <!-- Action Buttons -->
                             <div class="popup-buttons">
                                 <button class="add-to-cart">Add to Cart</button>
                                 <button class="buyNow">Buy It Now</button>
-                                <a href="../pages/product.html" class="pop-link">View full details</a>
+                                <a href="./pages/product.html" class="pops-link">View full details </a>
                             </div>
                         </div>
                     </div>
@@ -432,7 +438,6 @@
                     </div>
                 </div>
             </div>
-
 </section>
 <div class="footer-body">
     <footer>

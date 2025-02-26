@@ -199,13 +199,11 @@
 }
 
 /* Color Selection */
-.color-selection,
-.quantity-selection {
+.color-selection {
     margin-bottom: 15px;
 }
 
-.color-selection p,
-.quantity-selection p {
+.color-selection p {
     font-weight: 500;
     color: #0a0a0a;
     margin-bottom: 5px;
@@ -255,60 +253,16 @@ top: 50px;
     gap: 8px;
 }
 
-.quantity-selection {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: Arial, sans-serif;
+.old-price {
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 5px;
 }
 
-.quantity-selection p {
+.new-price {
     font-weight: bold;
-    margin: 0;
+    color: rgb(7, 7, 7);
 }
-
-.quantity-selection div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.quantity-btn {
-    width: 30px;
-    height: 30px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: #ddd;
-    transition: 0.3s ease-in-out;
-}
-
-.quantity-btn:hover {
-    background-color: #bbb;
-}
-
-#quantity {
-    font-size: 16px;
-    font-weight: bold;
-    min-width: 20px;
-    text-align: center;
-}
-
-
-.pop-link{
-  text-align: left;
-}
-
-#quantity {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 50px;
-    text-align: center;
-}
-
 /* Action Buttons */
 .popup-buttons {
     margin-top: 20px;
@@ -378,26 +332,14 @@ top: 50px;
             text-align: center;
             width: 100%;
         }
-    
-        .color-options {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 3px;
+
+        .old-price {
+            font-size:20px;
         }
         
-.color-options {
-    display:inline-flex;
-    gap: 5px;
-    
-}
-
-/* Color Buttons */
-.color-btn {
-    width: 35px;
-    height: 35px;
-
-}
-
+        .new-price {
+            font-size:20px;
+        }
 
 
     }
@@ -429,10 +371,7 @@ top: 50px;
     }
     
     @media (max-width: 480px) {
-        .color-btn {
-            width: 30px;
-            height: 2px;
-        }
+        
     .popup-content{
         height: 650px;
     }
