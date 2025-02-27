@@ -118,40 +118,48 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .abouts-hero,
-            .abouts-mission {
-                flex-direction: column;
-                text-align: center;
-            }
 
-            .heros-image, .missions-image {
-                width: 80%;
-            }
+        /* Responsive Design */
+@media (max-width: 768px) {
+    .abouts-hero,
+    .abouts-mission {
+        flex-direction: column;
+        text-align: center;
+    }
 
-          .missions-content {
-                width: 100%;
-            }
-            .heros-text {
-                width: 100%;
-                padding: 20px;
-            }
-    
-            .heros-text h1 {
-                font-size: 2.5rem;
-                color: #ceab6a;
-            }
-    
-            .heros-text p {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-            .missions-content p {
-                font-size: 15px;
-                line-height: 1.5; /* Increases spacing between lines */
-                
-            }
-        }
+    .heros-image, .missions-image {
+        width: 80%;
+    }
+
+    .missions-content {
+        width: 100%;
+    }
+    .heros-text {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .missions-content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* Stack the image above the text in the mission section */
+    .abouts-mission {
+        flex-direction: column;
+        gap: 10px; /* Reduces the space between text and image */
+    }
+
+    .missions-image {
+        order: -1; /* Moves the image to the top */
+    }
+
+    /* Reduce the margin/padding between About and Mission sections */
+    .abouts-hero {
+        margin-bottom: 1px; /* Adjust margin to reduce space */
+    }
+}
+
     </style>
 </head>
 <body>
