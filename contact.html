@@ -6,96 +6,128 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/nav.css"> 
+    <link rel="stylesheet" href="./css/cart.css"> 
     <style>
-        /* Basic styles */
-        .contact-body {
+        .contact-container-body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Ensure full viewport height */
+            background-color: white;
+            margin: 25px 0;
         }
-
         .contact-container {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            max-width: 900px;
-            width: 95%; /* Occupy most of the screen width */
-            background-color: #fff;
+            background-color: white;
             padding: 20px;
+            width: 95%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            
         }
-
-        .organization-info,
-        .contact-form {
-            flex: 1 1 300px; /* Each section takes at least 300px, can grow */
+        .contacts-info-div {
+            flex: 1;
             padding: 20px;
-            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        .contacts-info-p{
+font-size:20px;
+margin-bottom: 10px;
+        }
+        .contacts-info-we{
+            font-size: 20px;
+                    }
+                    .contacts-info-h2{
+                        font-size:28px ;
+                        margin-bottom: 15px;
+                    }
+        .contact-form-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .contact-form-group {
+            margin-bottom: 15px;
+            position: relative;
         }
 
-        .organization-info h2,
-        .contact-form h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
 
-        .organization-info p {
-            margin-bottom: 10px;
-        }
+    .contact-form-group ::placeholder{
+        color: black;
+        font-weight:bold;
+        font-size: 15px;
+    }
 
-        .organization-info ul {
-            padding-left: 20px;
-        }
+        .contact-form-group input,
+        .contact-form-group textarea {
 
-        .contact-form label,
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form button {
-            display: block;
             width: 100%;
-            margin-bottom: 10px;
-            box-sizing: border-box; /* Include padding in width calculation */
-        }
-
-        .contact-form input,
-        .contact-form textarea {
             padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .contact-form button {
-            background-color: #080807;
-            color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
+            border-bottom: 2px solid #101010;
+            outline: none;
+            background: transparent;
+        }
+        .contact-form-group input:focus,
+        .contact-form-group textarea:focus {
+            border-bottom: 2px solid #e9c582;
+        }
+        .contact-button {
+            width: 30%;
+            padding: 10px;
+            border: none;
+            background-color: #262627;
+            color: white;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 15px;
+            font-size: 16px;
         }
-
-        .contact-form button:hover {
-            background-color: #2b2823;
+        .contact-button:hover {
+            background-color: #060606;
         }
-
-        /* Media query for smaller screens */
+        .contact-form-container{
+            width: 60%;
+            padding: 40px;
+            border: 2px solid #e0dede;  /* Added border */
+            border-radius: 15px;  /* Rounded corners */
+            background: white;
+            margin: 20px; /* Added spacing around the form */
+            background-color: rgb(232, 231, 231);
+        }
         @media (max-width: 768px) {
             .contact-container {
-                flex-direction: column; /* Stack sections vertically */
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 15px;
             }
-
-            .organization-info,
-            .contact-form {
-                flex: 1 1 100%; /* Each section takes full width */
+        
+            .contacts-info-div {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+            }
+        
+            .contact-form-container {
+                width: 100%;
+                padding: 20px;
+                border: 2px solid #e0dede;
+                border-radius: 15px;
+                background: rgb(232, 231, 231);
+                margin: 0;
+            }
+        
+            .contact-form-group input,
+            .contact-form-group textarea {
+                width: 100%;
+            }
+        
+            .contact-button {
+                width: 30%;
+                padding: 12px;
+                font-size: 18px;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -103,11 +135,9 @@
         <div class="hamburger" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </div>
-    
         <div class="logo">MyLogo</div>
-    
         <ul class="nav-links">
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="./shop.html">Shop</a></li>
             <li class="dropdown">
                 <a href="#">Pages</a>
@@ -118,83 +148,80 @@
             </li>
             <li><a href="./contact.html">Contact</a></li>
         </ul>
-    
         <div class="icons">
             <i class="fas fa-search" onclick="toggleSearchPopup()"></i>
             <div class="cart-container" onclick="toggleCartSidebar()">
                 <i class="fa fa-shopping-cart"></i>
-                <span id="cartItemCount" class="cart-badge">0</span>
+                <span class="cart-badge">0</span>
             </div>
-            <div class="cart-container" >
+            <div class="cart-container">
                 <i class="fa fa-heart"></i>
-                <span id="cartItemCount" class="cart-badge">0</span>
+                <span class="cart-badge">0</span>
             </div>
-            <a href="signin.html" style="color: white; text-decoration: none;">
-                <i class="far fa-user"></i>
-              </a>
-              
+            <a href="signin.html" class="user-icon">
+                <i class="far fa-user" style="color: white;"></i>
+            </a>
+            
         </div>
-        <div class="sidebar">
-            <div class="logo-1">MyLogo</div>
+    </header>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">MyLogo</div>
             <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
-            <a href="./index.html">Home</a>
-            <a href="./shop.html">Shop</a>
-        
-            <!-- Pages Dropdown in Sidebar -->
-            <li class="#">Pages</a>
-                <div class="dropdown-content">
-                    <a href="./b.html">About Us</a>
-                    <a href="./contact.html">Contact Us</a>
-                </div>
-            </li>
-            <a href="./contact.html">Contact</a>
         </div>
-        
-      <!-- Search Popup -->
-      <div class="search-popup" id="searchPopup">
+        <a href="#">Home</a>
+        <a href="./shop.html">Shop</a>
+        <div class="dropdown">
+            <a href="#">Pages</a>
+            <div class="dropdown-content">
+                <a href="./b.html">About Us</a>
+                <a href="./contact.html">Contact Us</a>
+            </div>
+        </div>
+        <a href="./contact.html">Contact</a>
+    </div>
+    
+    <div class="search-popup" id="searchPopup">
         <input type="text" id="searchQuery" placeholder="Search...">
         <button onclick="performSearch()">Search</button>
         <i class="fas fa-times close-btn" onclick="toggleSearchPopup()"></i>
-    </div>    
-    </header>
-    
+    </div>
     <div class="sidebar-cart" id="cartSidebar">
-        <p>Items on Cart</p>
-        <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i>
+        <p>Items on Cart <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i></p>
         <div id="cartItemsContainer" class="cart-items"></div>
         <div class="cart-total">
-            <p>Total: <span id="cartTotal">0</span></p>
-            <a href="./checkout.html" style="background-color: #07090a; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">
-                Checkout
-              </a>
-              
+            <p>Total: <span id="cartTotal">Tk 0.00</span></p>
+            <a href="./checkout.html" class="checkout-btn">Checkout</a>
         </div>
     </div>
-    <section class="contact-body">
+    <section class="contact-container-body">
     <div class="contact-container">
-        <div class="organization-info">
-            <h2>Our Organization</h2>
-            <p>Insert your organization's description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>Contact us for more information:</p>
-            <ul>
-                <li>Email: info@example.com</li>
-                <li>Phone: +1234567890</li>
-                <li>Address: 123 Organization St, City, Country</li>
-            </ul>
+        <div class="contacts-info-div">
+            <h2 class="contacts-info-h2">Contact Us</h2>
+            <p class="contacts-info-p"><b>Address:</b> 123 Main Street, City, Country <br></p>
+            <p class="contacts-info-p"><b>Email:</b> contact@example.com</p>
+            <p class="contacts-info-p"><b>Phone:</b> +123 456 7890</p>
+            <p class="contacts-info-we">We’d love to hear from you! Fill out the form and we’ll get back to you as soon as possible.</p>
         </div>
-        <div class="contact-form">
-            <h2>Contact Us</h2>
+        <div class="contact-form-container">
             <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
+                <h2  class="contacts-info-h2">Say Hello</h2>
+                <div class="contact-form-group">
+                    <input type="text" id="name" placeholder="Name: " required>
+                </div>
+                <div class="contact-form-group">
+                    <input type="email" id="email" placeholder="Email: " required>
+                </div>
+                <div class="contact-form-group">
+                    <textarea id="message" placeholder="Your Message: " rows="4" required></textarea>
+                </div>
+                <button class="contact-button" type="submit">Send</button>
             </form>
         </div>
     </div></section>
+
+
     <div class="footer-body">
         <footer>
             <div class="footer-column">
@@ -241,23 +268,14 @@
                 <p>+12345 678 910<br>
                    +12345 678 109</p>
             </div>
-        </footer>
-    <script src="../js/nav.js"></script>
+        </footer></div>
+        <script src="./js/nav.js"></script>
+        <script src="./js/sh.js"></script>
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
-            let name = document.getElementById('name').value;
-            let email = document.getElementById('email').value;
-            let message = document.getElementById('message').value;
-
-            if (name === "" || email === "" || message === "") {
-                alert("Please fill in all fields.");
-                return;
-            }
-
-            alert("Message sent successfully!");
-            this.reset();
+            alert("Your message has been sent!");
+            document.getElementById("contactForm").reset();
         });
     </script>
 </body>

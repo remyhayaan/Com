@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
     <link rel="stylesheet" href="./css/nav.css"> 
+    <link rel="stylesheet" href="./css/cart.css"> 
     <link rel="stylesheet" href="./css/hero.css"> 
     <link rel="stylesheet" href="./css/hero-pdts.css">
      <link rel="stylesheet" href="./css/product.css"> 
@@ -94,16 +95,13 @@ top: 50px;
    </style>
 </head>
 <body>
-
     <header class="header">
         <div class="hamburger" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </div>
-    
         <div class="logo">MyLogo</div>
-    
         <ul class="nav-links">
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="./shop.html">Shop</a></li>
             <li class="dropdown">
                 <a href="#">Pages</a>
@@ -114,68 +112,54 @@ top: 50px;
             </li>
             <li><a href="./contact.html">Contact</a></li>
         </ul>
-    
         <div class="icons">
             <i class="fas fa-search" onclick="toggleSearchPopup()"></i>
             <div class="cart-container" onclick="toggleCartSidebar()">
                 <i class="fa fa-shopping-cart"></i>
-                <span id="cartItemCount" class="cart-badge">0</span>
+                <span class="cart-badge">0</span>
             </div>
-            <div class="cart-container" >
+            <div class="cart-container">
                 <i class="fa fa-heart"></i>
-                <span id="cartItemCount" class="cart-badge">0</span>
+                <span class="cart-badge">0</span>
             </div>
-            <a href="signin.html" style="color: white; text-decoration: none;">
-                <i class="far fa-user"></i>
-              </a>
-              
+            <a href="signin.html" class="user-icon">
+                <i class="far fa-user" style="color: white;"></i>
+            </a>
+            
         </div>
-        <div class="sidebar">
-            <div class="logo-1">MyLogo</div>
+    </header>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">MyLogo</div>
             <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
-            <a href="./index.html">Home</a>
-            <a href="./shop.html">Shop</a>
-        
-            <!-- Pages Dropdown in Sidebar -->
-            <li class="dropdown">
-                <a href="#">Pages</a>
-                <div class="dropdown-content">
-                    <a href="./b.html">About Us</a>
-                    <a href="./contact.html">Contact Us</a>
-                </div>
-            </li>
-            <a href="./contact.html">Contact</a>
         </div>
-        
-      <!-- Search Popup -->
-      <div class="search-popup" id="searchPopup">
+        <a href="#">Home</a>
+        <a href="./shop.html">Shop</a>
+        <div class="dropdown">
+            <a href="#">Pages</a>
+            <div class="dropdown-content">
+                <a href="./b.html">About Us</a>
+                <a href="./contact.html">Contact Us</a>
+            </div>
+        </div>
+        <a href="./contact.html">Contact</a>
+    </div>
+    
+    <div class="search-popup" id="searchPopup">
         <input type="text" id="searchQuery" placeholder="Search...">
         <button onclick="performSearch()">Search</button>
         <i class="fas fa-times close-btn" onclick="toggleSearchPopup()"></i>
-    </div>    
-    </header>
-    
-    <div class="sidebar-cart" id="cartSidebar">
-        <p>Items on Cart</p>
-        <i class="fas fa-times close-button" onclick="toggleCartSidebar()"></i>
-        <div id="cartItemsContainer" class="cart-items"></div>
-        <div class="cart-total">
-            <p>Total: <span id="cartTotal">0</span></p>
-            <a href="./checkout.html" style="background-color: #07090a; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; text-align: center;">
-                Checkout
-              </a>
-              
-        </div>
     </div>
                <div class="body">
     <div class="product-image">
-        <img id="main-image" src="../images/phone-1.jfif" alt="KB Phone 15 Pro">
+        <img id="main-image" src="./images/phone-1.jfif" alt="KB Phone 15 Pro">
         
         <!-- Thumbnail Images directly below the main image -->
         <div class="thumbnail-container">
-            <img class="thumbnail" src="../images/watch-1.jfif" alt="KB Phone 15 Pro 2">
-            <img class="thumbnail" src="../images/pc-2.jfif" alt="KB Phone 15 Pro 3">
-            <img class="thumbnail" src="../images/phone-1.jfif" alt="KB Phone 15 Pro 4">
+            <img class="thumbnail" src="./images/watch-1.jfif" alt="KB Phone 15 Pro 2">
+            <img class="thumbnail" src="./images/pc-2.jfif" alt="KB Phone 15 Pro 3">
+            <img class="thumbnail" src="./images/phone-1.jfif" alt="KB Phone 15 Pro 4">
         </div>
     </div>
     
@@ -200,13 +184,15 @@ top: 50px;
                                     <button class="color-btn">Blue</button>
                                 </div></div>
                            <p></p>
-                           <div class="quantity-selection">
-                            <div><p>Quantity:</p></div>
-                            <div><button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
-                            <span id="quantity">1</span>
-                            <button class="quantity-btn"  onclick="increaseQuantity()">+</button></div>
-                         
+                           <div class="qty-wrapper">
+                            <p class="qty-label">Quantity:</p>
+                            <div class="qty-container">
+                                <button class="qty-btn minus" onclick="decreaseQuantity()">-</button>
+                                <span id="qty-value">1</span>
+                                <button class="qty-btn plus" onclick="increaseQuantity()">+</button>
+                            </div>
                         </div>
+        
 
             <div class="buttons">
                 <button class="add-to-cart1">Add To Cart</button>
@@ -244,9 +230,50 @@ top: 50px;
 
 <div class="head-div"><h1 class="head-h1"><br>Similar Products</h1></div>
 <section class="recommended-products">
+    <div class="recommended-product-card">
+        <img src="./images/watch-1.jfif" alt="Product 1">
+        <span class="discount-badge">SALE</span>
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Ornex Blender</h3>
+            <p><span class="old-price">Shs 185,000</span> <span class="new-price">Shs 148,700</span></p>
+        </div>
+    </div>
 
     <div class="recommended-product-card">
-        <img src="../images/../images/watch-1.jfif" alt="Product 2">
+        <img src="./images/phone-1.jfif" alt="Product 3">
+        <span class="discount-badge">SALE</span>
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Phone</h3>
+            <p><span class="old-price">Shs 175,000</span> <span class="new-price">Shs 148,700</span></p>
+        </div>
+    </div>
+
+    <div class="recommended-product-card">
+        <img src="./images/watch-1.jfif" alt="Product 2">
+        <div class="icon-overlay">
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-eye"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="recommended-product-info">
+            <h3>Watch</h3>
+            <p>Shs 148,700.00</p>
+        </div>
+    </div>
+
+    <div class="recommended-product-card">
+        <img src="./images/watch-1.jfif" alt="Product 2">
+        <span class="discount-badge">SALE</span>
         <div class="icon-overlay">
             <i class="fas fa-plus"></i>
             <i class="fas fa-eye"></i>
@@ -254,96 +281,64 @@ top: 50px;
         </div>
         <div class="recommended-product-info">
             <h3>Speaker</h3>
-            <p>Tk 148,700.00</p>
-           
+            <p><span class="old-price">Shs 200,000</span> <span class="new-price">Shs 140,000</span></p>
         </div>
     </div>
-        
-    <div class="recommended-product-card">
-        <img src="../images/../images/watch-1.jfif" alt="Product 2">
-        <div class="icon-overlay">
-            <i class="fas fa-plus"></i>
-            <i class="fas fa-eye"></i>
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="recommended-product-info">
-            <h3>HeadPhones</h3>
-            <p>Tk 148,700.00</p>
-        
-        </div>
-    </div><div class="recommended-product-card">
-        <img src="../images/../images/watch-1.jfif" alt="Product 2">
-        <div class="icon-overlay">
-            <i class="fas fa-plus"></i>
-            <i class="fas fa-eye"></i>
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="recommended-product-info">
-            <h3>Shirts</h3>
-            <p>Tk 148,700.00.</p>
-            
-        </div>
-    </div>
-    <div class="recommended-product-card">
-        <img src="../images/../images/phone-1.jfif" alt="Product 2">
-        <div class="icon-overlay">
-            <i class="fas fa-plus"></i>
-            <i class="fas fa-eye"></i>
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="recommended-product-info">
-            <h3>Dress</h3>
-            <p>Tk 148,700.00</p>
-           
-        </div>
-    </div>
-    <div class="space"></div>
 </section>
+
 
 <!-- Product Details Popup -->
 <div id="productPopup" class="product-popup">
-    <div class="popup-content">
+<div class="popup-content">
+    <span class="close-popup" onclick="closePopup()">&times;</span>
+    <div class="popup-details">
         <span class="close-popup" onclick="closePopup()">&times;</span>
-        <div class="popup-details">
-            <span class="close-popup" onclick="closePopup()">&times;</span>
-            <img id="popupProductImage" src="" alt="Product Image">
-            <div class="popup-info">
-                <h2 id="popupProductTitle"></h2>
-                <p class="popup-price">Price:<span id="popupProductDescription"></span>  <span class="old-price">Tk 124,400.00</span> <span class="sale-badge">SALE</span>   <span class="discount">-25%</span></p>
-                
+        <img id="popupProductImage" src="" alt="Product Image">
+        <div class="popup-info">
+            <h2 id="popupProductTitle"></h2>
+            <p class="popup-price">
+                <span id="popupOldPrice"></span> 
+                <span id="popupNewPrice"></span>
+                <span id="popupSaleBadge" class="sale-badge" style="display: none;">SALE</span>
+                <span id="popupDiscount" class="discount"></span>
+              
+            </p>
             
-                <!-- Color Selection -->
-                <div class="color-selection">
-                    
-                    <div class="color-options">
-                        <div><p>Select Color:</p></div>
-                       <div> <button class="color-btn"> Black</button>
-                        <button class="color-btn" >Red</button>
-                        <button class="color-btn">Blue</button>
-                    </div></div>
-                </div>
+            
+            <!-- Color Selection -->
+            <div class="color-selection">
+                
+                <div class="color-options">
+                    <div><p>Select Color:</p></div>
+                   <div> <button class="color-btn"> Black</button>
+                    <button class="color-btn" >Red</button>
+                    <button class="color-btn">Blue</button>
+                </div></div>
+            </div>
 
-                <!-- Quantity Selection -->
-                <div class="quantity-selection">
-                    <div><p>Quantity:</p></div>
-                    <div><button class="quantity-btn"  onclick="decreaseQuantity()">-</button>
-                    <span id="quantity">1</span>
-                    <button class="quantity-btn"  onclick="increaseQuantity()">+</button></div>
-                 
+            <!-- Quantity Selection -->
+            <div class="qty-wrapper">
+                <p class="qty-label">Quantity:</p>
+                <div class="qty-container">
+                    <button class="qty-btn minus" onclick="decreaseQuantity()">-</button>
+                    <span id="qty-value">1</span>
+                    <button class="qty-btn plus" onclick="increaseQuantity()">+</button>
                 </div>
-             
-                <!-- Action Buttons -->
-                <div class="popup-buttons">
-                    <button class="add-to-cart">Add to Cart</button>
-                    <button class="buyNow">Buy It Now</button>
-                    <a href="" class="pop-link">View full details</a>
-                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="popup-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buyNow">Buy It Now</button>
+                <a href="./pages/product.html" class="pops-link">View full details </a>
             </div>
         </div>
     </div>
-            </div>
+</div>
         </div>
     </div>
+</div>
+</div>
 </div>
 <div class="footer-body">
     <footer>
