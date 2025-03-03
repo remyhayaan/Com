@@ -164,7 +164,7 @@
 .popup-info h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #333;
+    color: black;
     margin-bottom: 10px;
 }
 
@@ -183,14 +183,14 @@
     font-size: 1.8rem;
     cursor: pointer;
     color: white;
-    background: rgba(0, 0, 0, 0.3);
+    background: black;
     padding: 5px 10px;
     border-radius: 5px;
     transition: 0.3s;
 }
 
 .close-popup:hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(47, 47, 47, 0.5);
 }
 
 /* Price Styling */
@@ -286,21 +286,21 @@ top: 50px;
 }
 
 .add-to-cart {
-    background: #34373a;
+    background: black;
     color: white;
 }
 
 .add-to-cart:hover {
-    background: #0c0d0e;
+    background: #34373a;
 }
 
 .buyNow {
-    background: #34373a;
+    background: black;
     color: white;
 }
 
 .buyNow:hover {
-    background: #0c0d0e;
+    background: #34373a;
 }
 
 /* Responsive Adjustments */
