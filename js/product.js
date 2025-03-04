@@ -114,28 +114,28 @@ document.querySelectorAll('.recommended-product-card .fa-plus, .recommended-prod
         // Define product images for each product
         const productImages = {
             "Ornex Blender": {
-                default: "./images/watch-1.jfif",
-                black: "./images/phone-1.jfif",
-                red: "./images/watch-1.jfif",
-                blue: "./images/pc-2.jfif"
+                default: "./images/b-0.jfif",
+                black: "./images/b-1.jfif",
+                red: "./images/product9.webp",
+                blue: "./images/b-2.jfif"
             },
-            "Phone": {
+            "IPhone 12": {
                 default: "./images/phone-1.jfif",
-                black: "./images/pc-2.jfif",
-                red: "./images/watch-1.jfif",
-                blue: "./images/pc-2.jfif"
+                black: "./images/003.webp",
+                red: "./images/005.jfif",
+                blue: "./images/product-1_.webp"
             },
-            "Watch": {
-                default: "./images/watch-1.jfif",
-                black: "./images/phone-1.jfif",
-                red: "./images/watch-1.jfif",
-                blue: "./images/pc-2.jfif"
+            "zPad Pro M.2": {
+                default: "./images/product-4_.webp",
+                black: "./images/image-2_.webp",
+                red: "./images/product-4_.webp",
+                blue:"./images/image-2_.webp"
             },
-            "Speaker": {
-                default: "./images/phone-1.jfif",
-                black: "./images/pc-2.jfif",
-                red: "./images/watch-1.jfif",
-                blue: "./images/pc-2.jfif"
+            "Macbook Pro": {
+                default: "./images/pc-2.jfif",
+                black: "./images/product-5_.webp",
+                red: "./images/pc-1.jfif",
+                blue: "./images/image-2_.webp"
             }
         };
 
@@ -181,3 +181,4 @@ function startCountdown(elementId, durationInHours, storageKey) {
 startCountdown("timer1", 6, "saleTimer1"); // Set 6 hours for the first card
 startCountdown("timer2", 8, "saleTimer2"); // Set 8 hours for the second card
 startCountdown("timer3", 2, "saleTimer3"); // Set 2 hours for the third card
+

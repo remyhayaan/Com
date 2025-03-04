@@ -468,11 +468,11 @@ margin-bottom: 10px;
  
     }
     .head-arrow h1 {
-        margin-left: 50px;
+        margin-left: 32px;
         margin-right: 100px;
     }
     .head-arrow p {
-        margin-left: 50px;
+        margin-left: 32px;
         margin-right: 50px;
     }
     .head-divs{
@@ -657,5 +657,93 @@ margin-bottom: 10px;
     .product-cards-h2{
         font-size:28px ;
         font-weight: bold;
+    }
+}
+.newsletter {
+    background: #111;
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #434242; /* Apply border only at the bottom */
+    margin: auto;
+    width: 100%;
+    max-width: 100%; /* Limit the width for better readability */
+}
+
+
+.newsletter h4 {
+    font-size: 35px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+#newsletter-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align elements to the left */
+
+}
+#newsletter-form input {
+    width: 400px; /* Makes the input take up available space */
+    padding: 10px;
+    border: 1px solid #2e2e2e;
+    border-radius: 35px;
+    font-size: 14px;
+    margin: 0 35px;
+    background-color:#111; /* Set background to black */
+    color: #fff; /* Set text color to white */
+    min-width: 200px; /* Prevents the input from becoming too small */
+}
+
+#newsletter-form input::placeholder {
+    color: #aaa; /* Light gray placeholder for better visibility */
+    opacity: 0.7;
+}
+
+
+#newsletter-form button {
+    padding: 10px 15px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 35px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #2e2e2e;
+    transition: background 0.3s ease;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+#newsletter-form button:hover {
+    background: #2c2c2c;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .newsletter h4 {
+        font-size: 24px;
+    }
+
+    #newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #newsletter-form input {
+        width: 80%; /* Full width on smaller screens */
+        max-width: none;
+        margin-bottom: 15px;
+        margin-left:10px;
+    }
+
+    #newsletter-form button {
+        width: 50%; /* Full width button */
+        margin-left:10px;
     }
 }

@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px 20px;
     background: black;
     color: white;
     position: sticky; /* Change to sticky */
@@ -43,7 +43,7 @@
 }
 
 .nav-links a:hover {
-    color:  #cece8f;
+    color:  #f6f6bd;
 }
 
 /* Icons */

@@ -6,6 +6,7 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/nav.css"> 
+    <link rel="stylesheet" href="./css/hero.css"> 
     <link rel="stylesheet" href="./css/cart.css"> 
     <style>
         .contact-container-body {
@@ -16,14 +17,13 @@
             justify-content: center;
             align-items: center;
             background-color: white;
-            margin: 25px 0;
+            margin: 10px 0;
         }
         .contact-container {
             display: flex;
             background-color: white;
             padding: 20px;
             width: 95%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             
         }
         .contacts-info-div {
@@ -31,16 +31,17 @@
             padding: 20px;
         }
         .contacts-info-p{
-font-size:20px;
-margin-bottom: 10px;
+            font-size:20px;
+            margin-bottom: 10px;
         }
         .contacts-info-we{
             font-size: 20px;
-                    }
-                    .contacts-info-h2{
-                        font-size:28px ;
-                        margin-bottom: 15px;
-                    }
+        }
+        .contacts-info-h2{
+            font-size:28px ;
+            margin-bottom: 15px;
+            margin-top: 80px;
+        }
         .contact-form-container {
             flex: 1;
             padding: 20px;
@@ -50,16 +51,14 @@ margin-bottom: 10px;
             position: relative;
         }
 
-
-    .contact-form-group ::placeholder{
-        color: black;
-        font-weight:bold;
-        font-size: 15px;
-    }
+        .contact-form-group ::placeholder{
+            color: black;
+            font-weight:bold;
+            font-size: 15px;
+        }
 
         .contact-form-group input,
         .contact-form-group textarea {
-
             width: 100%;
             padding: 10px;
             border: none;
@@ -87,59 +86,75 @@ margin-bottom: 10px;
         .contact-form-container{
             width: 60%;
             padding: 40px;
-            border: 2px solid #e0dede;  /* Added border */
+            border: 2px solid #fdf8f8;  /* Added border */
             border-radius: 15px;  /* Rounded corners */
             background: white;
             margin: 20px; /* Added spacing around the form */
-            background-color: rgb(247, 239, 239);
+            background-color: rgb(253, 252, 252);
         }
+
+        /* Google Maps container styling */
+        .google-map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+
         @media (max-width: 768px) {
+            .contact-container-body {
+                margin:0;
+            }
             .contact-container {
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
                 padding: 15px;
             }
-        
+
             .contacts-info-div {
                 width: 100%;
                 text-align: center;
                 padding: 15px;
             }
-        
+
             .contact-form-container {
                 width: 100%;
                 padding: 20px;
-                border: 2px solid #e0dede;
                 border-radius: 15px;
-                background: rgb(247, 239, 239);
                 margin: 0;
             }
-        
+
             .contact-form-group input,
             .contact-form-group textarea {
                 width: 100%;
             }
-        
+
             .contact-button {
                 width: 30%;
                 padding: 12px;
                 font-size: 18px;
             }
+
             .contacts-info-p{
                 font-size:18px;
                 margin-bottom: 10px;
-
-                        }
-                        .contacts-info-we{
-                            font-size: 22px;
-                                    }
-                                    .contacts-info-h2{
-                                        font-size:28px ;
-                                        margin-bottom: 15px;
-                                    }
+            }
+            .contacts-info-we{
+                font-size: 22px;
+            }
+            .contacts-info-h2{
+                font-size:28px ;
+                margin-bottom: 15px;
+                margin-top: 30px;
+            }
+            .google-map-container {
+                margin-bottom: 20px;
+            }
         }
-        
+        .google-map-container {
+            margin-bottom: 60px;
+        }
+
     </style>
 </head>
 <body>
@@ -207,33 +222,47 @@ margin-bottom: 10px;
             <a href="./checkout.html" class="checkout-btn">Checkout</a>
         </div>
     </div>
+
     <section class="contact-container-body">
-    <div class="contact-container">
-        <div class="contacts-info-div">
-            <h2 class="contacts-info-h2">Contact Us</h2>
-            <p class="contacts-info-p"><b>Address:</b> 123 Main Street, City, Country <br></p>
-            <p class="contacts-info-p"><b>Email:</b> contact@example.com</p>
-            <p class="contacts-info-p"><b>Phone:</b> +123 456 7890</p>
-            <p class="contacts-info-we">We’d love to hear from you! Fill out the form and we’ll get back to you as soon as possible.</p>
+        <div class="contact-container">
+            <div class="contacts-info-div">
+                <h2 class="contacts-info-h2">Contact Us</h2>
+                <p class="contacts-info-p"><b>Address:</b> 123 Main Street, City, Country <br></p>
+                <p class="contacts-info-p"><b>Email:</b> contact@example.com</p>
+                <p class="contacts-info-p"><b>Phone:</b> +123 456 7890</p>
+                <p class="contacts-info-we">We’d love to hear from you! Fill out the form and we’ll get back to you as soon as possible.</p>
+            </div>
+            <div class="contact-form-container">
+                <form id="contactForm">
+                    <h2  class="contacts-info-h2">Say Hello</h2>
+                    <div class="contact-form-group">
+                        <input type="text" id="name" placeholder="Name: " required>
+                    </div>
+                    <div class="contact-form-group">
+                        <input type="email" id="email" placeholder="Email: " required>
+                    </div>
+                    <div class="contact-form-group">
+                        <textarea id="message" placeholder="Your Message: " rows="4" required></textarea>
+                    </div>
+                    <button class="contact-button" type="submit">Send</button>
+                </form>
+            </div>
         </div>
-        <div class="contact-form-container">
-            <form id="contactForm">
-                <h2  class="contacts-info-h2">Say Hello</h2>
-                <div class="contact-form-group">
-                    <input type="text" id="name" placeholder="Name: " required>
-                </div>
-                <div class="contact-form-group">
-                    <input type="email" id="email" placeholder="Email: " required>
-                </div>
-                <div class="contact-form-group">
-                    <textarea id="message" placeholder="Your Message: " rows="4" required></textarea>
-                </div>
-                <button class="contact-button" type="submit">Send</button>
-            </form>
-        </div>
-    </div></section>
+    </section>
 
-
+ <!-- Google Maps container -->
+<div class="google-map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.758939951358!2d32.58271607156725!3d0.3125957996843318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc7e7d548023%3A0xb9bedbfc1bb6d1a4!2sThe%20Food%20Hub!5e0!3m2!1sen!2sug!4v1741091655372!5m2!1sen!2sug" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy=></iframe>
+</div>
+    </div>
+    <div class="newsletter">
+        <h4>Subscribe to our Newsletter</h4>
+        <p>Stay updated with our latest news and offers.</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
     <div class="footer-body">
         <footer>
             <div class="footer-column">
@@ -281,8 +310,9 @@ margin-bottom: 10px;
                    +12345 678 109</p>
             </div>
         </footer></div>
-        <script src="./js/nav.js"></script>
-        <script src="./js/sh.js"></script>
+    
+    <script src="./js/nav.js"></script>
+    <script src="./js/sh.js"></script>
     <script>
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();

@@ -14,7 +14,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-           
             background-color: #f9f9f9;
         }
 
@@ -23,7 +22,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 50px;
+            padding:  50px 50px;
             background-color: #fff;
         }
 
@@ -54,7 +53,7 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            padding: 50px;
+            padding: 50px 50px;
             background-color: white;
         }
 
@@ -81,7 +80,7 @@
         /* Team Section */
         .aboutss-team {
             text-align: center;
-            padding: 50px;
+            padding: 50px 50px;
             background-color: #fff;
         }
 
@@ -126,7 +125,17 @@
         flex-direction: column;
         text-align: center;
     }
+    .aboutss-team {
+        padding: 20px 85px;
+    }
+    .abouts-hero {
+        padding:  35px 5px;
+    }
 
+    .abouts-mission {
+        gap: 20px;
+        padding: 0 25px;
+    }
     .heros-image, .missions-image {
         width: 80%;
     }
@@ -157,6 +166,9 @@
     /* Reduce the margin/padding between About and Mission sections */
     .abouts-hero {
         margin-bottom: 1px; /* Adjust margin to reduce space */
+    }
+    .teamss-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
@@ -238,7 +250,7 @@
     <section class="abouts-mission">
         <div class="missions-content">
             <h2 class="sections-heading">Our Mission</h2>
-            <p>We are committed to delivering high-quality solutions that help businesses grow and communities thrive.<br> Our goal is to inspire progress by leveraging technology and teamwork.</p>
+            <p>We are committed to delivering high-quality solutions that help businesses grow and communities thrive. Our goal is to inspire progress by leveraging technology and teamwork.</p>
             <p>Through innovation and dedication, we aim to lead by example and contribute to a sustainable future.<br> Our team’s combined expertise and passion make us a trusted partner in achieving goals and transforming ideas into reality.</p>
         </div>
         <img src="./images/banner1.jpg" alt="Mission Image" class="missions-image">
