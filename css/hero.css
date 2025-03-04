@@ -665,7 +665,6 @@ margin-bottom: 10px;
     text-align: left; /* Align text to the left */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #434242; /* Apply border only at the bottom */
-    margin: auto;
     width: 100%;
     max-width: 100%; /* Limit the width for better readability */
 }
@@ -675,12 +674,14 @@ margin-bottom: 10px;
     font-size: 35px;
     color: white;
     margin-bottom: 10px;
+    margin-left:30px;
 }
 
 .newsletter p {
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     margin-bottom: 15px;
+    margin-left:30px;
 }
 
 #newsletter-form {
