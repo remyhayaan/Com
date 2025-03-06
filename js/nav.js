@@ -1,24 +1,58 @@
 function toggleSidebar() {
-  document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.sidebar').classList.toggle('active');
 }
 
+// Close sidebar when clicking outside
+document.addEventListener('click', function (event) {
+    const sidebar = document.querySelector('.sidebar');
+    const hamburger = document.querySelector('.hamburger');
+
+    // Check if the sidebar is active and the clicked element is not inside the sidebar or hamburger menu
+    if (sidebar.classList.contains('active') &&
+        !sidebar.contains(event.target) &&
+        !hamburger.contains(event.target)) {
+        sidebar.classList.remove('active');
+    }
+});
 function toggleSearchPopup() {
-  document.getElementById('searchPopup').classList.toggle('active');
+    document.getElementById('searchPopup').classList.toggle('active');
 }
+
+// Close search popup when clicking outside
+// document.addEventListener('click', function (event) {
+//     const searchPopup = document.getElementById('searchPopup');
+//     const searchIcon = document.querySelector('.fa-search');
+
+//     if (searchPopup.classList.contains('active') &&
+//         !searchPopup.contains(event.target) &&
+//         !searchIcon.contains(event.target)) {
+//         searchPopup.classList.remove('active');
+//     }
+// });
 
 function performSearch() {
-  const query = document.getElementById('searchQuery').value;
-  if (query) {
-      alert('Searching for: ' + query);
-  } else {
-      alert('Please enter a search query');
-  }
+    const query = document.getElementById('searchQuery').value;
+    if (query) {
+        alert('Searching for: ' + query);
+    } else {
+        alert('Please enter a search query');
+    }
 }
 
 function toggleCartSidebar() {
     document.getElementById('cartSidebar').classList.toggle('open');
 }
+// Close cart sidebar when clicking outside
+document.addEventListener('click', function (event) {
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartIcon = document.querySelector('.cart-container');
 
+    if (cartSidebar.classList.contains('open') &&
+        !cartSidebar.contains(event.target) &&
+        !cartIcon.contains(event.target)) {
+        cartSidebar.classList.remove('open');
+    }
+});
 const cart = [
     { name: 'KB Phone 15 Pro', price: 93000.00, image: './images/phone-1.jfif', color: 'Silver', size: '6"' },
     { name: 'KB Phone 15 Pro', price: 93000.00, image: './images/phone-1.jfif', color: 'Silver', size: '6"' },
