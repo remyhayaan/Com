@@ -371,20 +371,20 @@ margin-bottom: 10px;
             margin-bottom: 20px;
         }
         .categories-h2  {
-            font-size: 25px;
+            font-size: 20px;
             font-weight: bold;
         }
     
         .categories-p {
-            font-size: 20px;
+            font-size: 16px;
         }
     
         .category h3 {
-            font-size: 20px;
+            font-size: 16px;
         }
     
         .category p {
-            font-size: 18px;
+            font-size: 15px;
         }
         .category img {
             width: 150px;
@@ -489,12 +489,13 @@ margin-bottom: 10px;
         margin-left: 18px;  
     }
     .text {
-        font-size: 20px;
+        font-size: 16px;
+        margin-left: 0px;
     
     }
     .head-h1 {
         margin-left: 18px;
-        font-size: 30px;
+        font-size: 22px;
     }
 }
 
@@ -643,6 +644,7 @@ margin-bottom: 10px;
         width: 100%;
         max-width: 350px;
         height: 200px;
+        margin: 0 5px;
     }
 
     .product-card-details h2 {
@@ -655,9 +657,10 @@ margin-bottom: 10px;
         padding: 6px 10px;
     }
     .product-cards-h2{
-        font-size:28px ;
-        font-weight: bold;
-    }
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
 }
 .newsletter {
     background: #111;
@@ -729,8 +732,15 @@ margin-bottom: 10px;
 @media screen and (max-width: 600px) {
     .newsletter h4 {
         font-size: 24px;
+        margin-left:5px;
     }
-
+    .newsletter p {
+        font-size: 16px;
+        color: white;
+        margin-bottom: 15px;
+        margin-left:5px;
+    }
+    
     #newsletter-form {
         flex-direction: column;
         align-items: stretch;
@@ -747,4 +757,4 @@ margin-bottom: 10px;
         width: 50%; /* Full width button */
         margin-left:10px;
     }
-}
+}}

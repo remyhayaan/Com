@@ -609,7 +609,11 @@ footer {
 
     .head-arrow p{
         margin-left: 22px;
-
+        font-size: 15px;
+        margin-right:0 ;
+    }
+    .head-arrow h1{
+        font-size: 22px;
     }
     .head-container text{
         margin-left: 22px;
